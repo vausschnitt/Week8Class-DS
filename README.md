@@ -1,4 +1,5 @@
 # Week8Class-DS
  Data Science  W8class
-NAME:
-ID:
+NAME: ALHAM AQIF UZAIR BIN HAMIDI
+ID: 24007454
+
