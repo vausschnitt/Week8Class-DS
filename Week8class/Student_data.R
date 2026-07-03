@@ -84,3 +84,27 @@ data<-c(30,24,26,28,29,28,27,26,32,34,13,15,14,31,29,28,24,25,30,34,35,27,30,34,
 boxplot(data, main = "Boxplot")
 summary(data)
 IQR(data)
+#quartile
+first_q<-quantile(data,0.25) #this is 26
+third_q<-quantile(data,0.75) #this is 31.75
+iqr<-IQR(data) #this produces 5.75
+
+le<-first_q - 1.5 * iqr #this produces 17.375
+ue<-third_q + 1.5 * iqr #this produces 40.375
+
+
+#handling outlier 
+#drop outlier
+data_new<-data
+data_new <- data_new[!data_new<le]
+data_new <- data_new[!data_new>ue]
+data_new
+
+#Replace the values with mean
+data_new <- data
+avg <- round(mean(data_new)) #for the purpose of example we round up value
+data_new[data_new<le] <- avg
+data_new[data_new>ue] <- avg
+data_new
+boxplot(data_new, main = "Boxplot")
+
